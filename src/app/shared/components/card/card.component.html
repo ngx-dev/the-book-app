@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="header">
+    <div
+      class="header-image"
+      [ngStyle]="{ 'background-image': getImage(item?.thumbnailUrl) }"
+    ></div>
+    <div class="header-info">
+      <span class="title">{{ item?.title }}</span>
+      <span class="author">{{ item?.author }}</span>
+      <span class="date">{{ item?.releaseDate | date }}</span>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="action-left">
+      <div class="action">Edit</div>
+    </div>
+    <div class="action-right">
+      <div class="action">Delete</div>
+    </div>
+  </div>
+</div>

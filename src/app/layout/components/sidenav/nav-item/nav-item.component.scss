@@ -1,0 +1,27 @@
+button {
+  background-color: transparent;
+  width: 180px;
+  padding: 8px 16px;
+  margin-bottom: 12px;
+  border: none;
+  border-left: 3px solid transparent;
+  border-radius: 6px;
+  font-weight: 600;
+  color: var(--color-text-button);
+  text-align: left;
+  cursor: pointer;
+  .icon {
+    background-repeat: no-repeat;
+    float: left;
+    width: 30px;
+    height: 18px;
+  }
+  &.is-active {
+    background-color: var(--color-grey-shade);
+    color: var(--color-text-button-active);
+  }
+  &.is-selected {
+    border-left: 3px solid var(--color-primary);
+    border-radius: 0px 6px 6px 0px;
+  }
+}
