@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { CardModule } from 'src/app/shared/components/card/card.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { CardModule } from 'src/app/shared/components/card/card.module';
     imports: [
         CommonModule,
         HomeRoutingModule,
-        CardModule
+        CardModule,
+        Ng2SearchPipeModule
     ]
 })
 export class HomeModule { }

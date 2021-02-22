@@ -12,3 +12,10 @@ body {
   }
   //   color: #333;
 }
+
+input:focus,
+textarea:focus,
+select:focus,
+button {
+  outline: none;
+}

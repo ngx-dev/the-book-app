@@ -1,5 +1,7 @@
-<ng-container *ngIf="books">
-  <ng-container *ngFor="let book of books">
-    <app-card [item]="book"></app-card>
+<div class="spacer-left">
+  <ng-container *ngIf="books">
+    <ng-container *ngFor="let book of books | filter: term">
+      <app-card [item]="book"></app-card>
+    </ng-container>
   </ng-container>
-</ng-container>
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BooksApiService } from 'src/app/services/api/books-api.service';
 import { Book } from '../../models/book';
-import { first } from 'rxjs/operators';
+import { BooksService } from 'src/app/services/books.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-home',
@@ -10,20 +10,16 @@ import { first } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
 
-    books: Book[] | undefined;
+    searchForm = new FormGroup({});
 
-    constructor(private booksApi: BooksApiService) {
-        this.booksApi.getBooks()
-            .pipe(first())
-            .subscribe(
-                data => this.books = data
-            );
-        // console.log(this.books);
-
+    constructor(public bookService: BooksService) {
+        this.bookService.getBooks();
+        this.searchForm = this.bookService.searchForm;
     }
 
-    ngOnInit(): void {
+    ngOnInit(): void { }
 
-    }
+    get books() { return this.bookService.books }
+    get term() { return this.searchForm.value.term }
 
 }

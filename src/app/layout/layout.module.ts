@@ -6,12 +6,24 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { NavItemComponent } from './components/sidenav/nav-item/nav-item.component';
 import { SubheaderComponent } from './components/subheader/subheader.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipe } from 'ng2-search-filter';
 
 @NgModule({
-    declarations: [MainLayoutComponent, HeaderComponent, SidenavComponent, NavItemComponent, SubheaderComponent],
+    declarations: [
+        MainLayoutComponent,
+        HeaderComponent,
+        SidenavComponent,
+        NavItemComponent,
+        SubheaderComponent
+    ],
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        ReactiveFormsModule,
+    ],
+    providers: [
+        Ng2SearchPipe
     ]
 })
 export class LayoutModule { }
