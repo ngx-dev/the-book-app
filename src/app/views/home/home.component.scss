@@ -1,3 +1,21 @@
 .spacer-left {
-  padding-left: var(--spacer);
+    padding-left: var(--spacer);
+}
+
+.subheader {
+    input {
+        border: 2px solid var(--color-grey-shade);
+        border-radius: 8px;
+        box-sizing: border-box;
+        background-image: url('/assets/icons/searchIcon.png');
+        background-repeat: no-repeat;
+        background-size: 16px;
+        background-position: 14px 8px;
+        padding: 6px 20px 6px 40px;
+    }
+
+    .total {
+        font-size: 14px;
+        margin-left: 16px;
+    }
 }

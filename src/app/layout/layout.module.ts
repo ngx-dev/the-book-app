@@ -24,6 +24,7 @@ import { Ng2SearchPipe } from 'ng2-search-filter';
     ],
     providers: [
         Ng2SearchPipe
-    ]
+    ],
+    exports: [SubheaderComponent]
 })
 export class LayoutModule { }

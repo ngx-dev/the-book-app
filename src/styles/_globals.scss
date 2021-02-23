@@ -1,21 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-  * {
-    font-family: "Open Sans", sans-serif, -apple-system, BlinkMacSystemFont,
-      "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji",
-      "Segoe UI Emoji", "Segoe UI Symbol";
-  }
-  //   color: #333;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    * {
+        font-family: 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont,
+            'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji',
+            'Segoe UI Emoji', 'Segoe UI Symbol';
+    }
+    //   color: #333;
 }
 
 input:focus,
 textarea:focus,
 select:focus,
-button {
-  outline: none;
+button,
+a {
+    outline: none;
 }

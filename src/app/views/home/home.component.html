@@ -1,7 +1,30 @@
+<div class="subheader" [formGroup]="searchForm">
+    <input
+        type="search"
+        name="search"
+        placeholder="Search..."
+        formControlName="term"
+    />
+    <!-- <span class="total">
+        {{ filteredBooksCount }} / {{ booksCount }} book{{
+            booksCount !== 1 ? 's' : ''
+        }}
+    </span> -->
+    <pagination-controls
+        class="pagination"
+        (pageChange)="page = $event"
+    ></pagination-controls>
+</div>
+
 <div class="spacer-left">
     <ng-container *ngIf="filteredBooks">
         <!-- <ng-container *ngFor="let book of books | filter: term"> -->
-        <ng-container *ngFor="let book of filteredBooks">
+        <ng-container
+            *ngFor="
+                let book of filteredBooks
+                    | paginate: { itemsPerPage: 20, currentPage: page }
+            "
+        >
             <app-card [item]="book"></app-card>
         </ng-container>
     </ng-container>

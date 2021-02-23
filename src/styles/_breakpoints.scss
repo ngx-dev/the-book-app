@@ -1,46 +1,51 @@
 /* SMART PHONE */
 @media only screen and (max-width: 320px) {
-  .logo {
-    text-align: center !important;
-  }
-  .logo__icon {
-    text-align: center;
-    .icon {
-      display: inline-block;
-      width: 50px !important;
-      height: 50px !important;
-      margin-top: 4px !important;
-      margin-left: 0 !important;
-      float: none !important;
+    .logo {
+        text-align: center !important;
     }
-  }
-  .logo__text {
-    display: none !important;
-  }
-  .card {
-    width: 286px !important;
-  }
+    .logo__icon {
+        text-align: center;
+        .icon {
+            display: inline-block;
+            width: 50px !important;
+            height: 50px !important;
+            margin-top: 4px !important;
+            margin-left: 0 !important;
+            float: none !important;
+        }
+    }
+    .logo__text {
+        display: none !important;
+    }
+    .card {
+        width: 286px !important;
+    }
 }
 
 /* TABLET */
 @media only screen and (max-width: 768px) {
-  :root {
-    --sidenav-width: 16px;
-  }
-  .sidenav {
-    display: none;
-  }
-  .view {
-    transition: margin 300ms ease;
-  }
+    :root {
+        --sidenav-width: 16px;
+    }
+    .sidenav {
+        display: none;
+    }
+    .view {
+        transition: margin 300ms ease;
+    }
+    .subheader {
+        .ngx-pagination {
+            padding: 0;
+        }
+    }
 }
 
 /* LAPTOP */
 @media only screen and (max-width: 1200px) {
-  /* Styles here */
+    /* Styles here */
 }
 
 /* DESKTOP */
 @media only screen and (max-width: 1600px) {
-  /* Styles here */
+    /* Styles here */
 }
