@@ -42,6 +42,15 @@ export class BooksService {
                     data => {
                         this.books = data;
                         this.saveToDB();
+
+                        const set = new Set();
+
+
+                        const a = this.books.map(book => ((book.genres).map(genre => set.add(genre))))
+
+                        console.log(a);
+
+
                     }
                 );
 

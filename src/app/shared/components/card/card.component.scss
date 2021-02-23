@@ -1,70 +1,70 @@
 .card {
-  display: inline-block;
-  width: 320px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: var(--shadow-2);
-  margin: 0 20px 20px 0;
-  .header {
-    padding: 20px 24px;
-    .header-image,
-    .header-info {
-      display: inline-block;
-    }
-    .header-image {
-      width: 88px;
-      height: 112px;
-      background-size: cover;
-      margin-right: 24px;
-    }
-    .header-info {
-      position: absolute;
-      max-width: 170px;
-      span {
-        display: block;
-        &.title {
-          color: var(--color-primary);
-          font-weight: 700;
-          margin-bottom: 8px;
+    display: inline-block;
+    width: 320px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: var(--shadow-2);
+    margin: 0 20px 20px 0;
+    .header {
+        padding: 20px 24px;
+        .header-image,
+        .header-info {
+            display: inline-block;
         }
-        &.author {
-          font-weight: 600;
-          font-size: 14px;
+        .header-image {
+            width: 88px;
+            height: 112px;
+            background-size: cover;
+            margin-right: 24px;
         }
-        &.date {
-          font-weight: 300;
-          font-size: 12px;
+        .header-info {
+            position: absolute;
+            max-width: 170px;
+            span {
+                display: block;
+                &.title {
+                    color: var(--color-primary);
+                    font-weight: 700;
+                    margin-bottom: 8px;
+                }
+                &.author {
+                    font-weight: 600;
+                    font-size: 14px;
+                }
+                &.date {
+                    font-weight: 300;
+                    font-size: 12px;
+                }
+            }
         }
-      }
     }
-  }
-  .actions {
-    border-top: 2px solid var(--color-grey-shade);
-    width: 100%;
-    .action-right,
-    .action-left {
-      //   padding: 20px 24px;
-      display: inline-block;
-      width: 50%;
-      text-align: center;
-      .action {
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--color-text-button);
-        padding: 10px 16px;
-        cursor: pointer;
-      }
-      &:hover {
-        background-color: var(--color-grey-shade);
-        .action {
-          color: var(--color-text-button-active);
+    .actions {
+        border-top: 2px solid var(--color-grey-shade);
+        width: 100%;
+        .action-right,
+        .action-left {
+            //   padding: 20px 24px;
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            .action {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--color-text-button);
+                padding: 10px 16px;
+                cursor: pointer;
+            }
+            &:hover {
+                background-color: var(--color-grey-shade);
+                .action {
+                    color: var(--color-text-button-active);
+                }
+            }
         }
-      }
+        .action-right {
+            .action {
+                border-left: 2px solid var(--color-grey-shade);
+            }
+        }
     }
-    .action-right {
-      .action {
-        border-left: 2px solid var(--color-grey-shade);
-      }
-    }
-  }
 }

@@ -5,36 +5,98 @@
     </h2>
 </div>
 
-<div class="content padding-left">
+<div class="padding-left">
     <!-- <pre>{{ book | json }}</pre> -->
-    <form [formGroup]="form">
-        <div class="row">
-            <label for="title">Title</label>
-            <input
-                class="input input--long"
-                type="text"
-                name="title"
-                formControlName="title"
-            />
+    <div class="wrapper">
+        <form [formGroup]="form">
+            <!-- TITLE -->
+            <div class="row">
+                <label for="title">Title</label>
+                <input
+                    class="input input--long"
+                    type="text"
+                    name="title"
+                    formControlName="title"
+                />
+            </div>
+            <!-- AUTHOR -->
+            <div class="row">
+                <label for="author">Author</label>
+                <input
+                    class="input input--medium"
+                    type="text"
+                    name="author"
+                    formControlName="author"
+                />
+            </div>
+            <!-- RELEASE DATE -->
+            <div class="row">
+                <label for="releaseDate">Release Date</label>
+                <input
+                    class="input input--medium"
+                    type="date"
+                    name="releaseDate"
+                    formControlName="releaseDate"
+                />
+            </div>
+            <!-- SYNOPSIS -->
+            <div class="row">
+                <label class="vertical-top" for="synopsis">Synopsis</label>
+                <textarea
+                    autosize
+                    [minRows]="4"
+                    class="input input--long"
+                    type="text"
+                    name="synopsis"
+                    formControlName="synopsis"
+                ></textarea>
+            </div>
+            <!-- GENRES -->
+            <!-- <div class="row">
+                <label for="genres">Genres</label>
+                <input
+                    class="input input--medium"
+                    type="text"
+                    name="genres"
+                    formControlName="genres"
+                />
+            </div> -->
+            <!-- GENRES -->
+            <div class="row">
+                <label class="vertical-top" for="genres">Genres</label>
+                <select multiple name="genres" formControlName="genres">
+                    <ng-container *ngFor="let option of genres">
+                        <option [value]="option">{{ option }}</option>
+                    </ng-container>
+                </select>
+            </div>
+            <!-- EDITABLE -->
+            <div class="row checkbox">
+                <label for="editable">Editable</label>
+                <input
+                    type="checkbox"
+                    name="editable"
+                    formControlName="editable"
+                />
+            </div>
+            <!-- DELETABLE -->
+            <div class="row checkbox">
+                <label for="deletable">Deletable</label>
+                <input
+                    type="checkbox"
+                    name="deletable"
+                    formControlName="deletable"
+                />
+            </div>
+        </form>
+        <!-- ACTIONS -->
+        <div class="row actions">
+            <button class="button margin-right" (click)="goHome()">
+                Cancel
+            </button>
+            <button class="button button--primary" (click)="submitForm()">
+                Save
+            </button>
         </div>
-        <div class="row">
-            <label for="author">Author</label>
-            <input
-                class="input input--medium"
-                type="text"
-                name="author"
-                formControlName="author"
-            />
-        </div>
-        <div class="row">
-            <label class="textarea" for="synopsis">Synopsis</label>
-            <textarea
-                class="input input--long"
-                type="text"
-                name="synopsis"
-                rows="4"
-                formControlName="synopsis"
-            ></textarea>
-        </div>
-    </form>
+    </div>
 </div>

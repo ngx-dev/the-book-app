@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { EditBookRoutingModule } from './edit-book-routing.module';
 import { EditBookComponent } from './edit-book.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AutosizeModule } from '@techiediaries/ngx-autosize';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     imports: [
         CommonModule,
         EditBookRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        AutosizeModule
     ]
 })
 export class EditBookModule { }

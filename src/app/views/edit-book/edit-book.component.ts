@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DatePipe, formatDate } from '@angular/common';
+import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/app/models/book';
@@ -24,7 +25,24 @@ export class EditBookComponent implements OnInit {
         isComplete: [true],
     });
 
+    genres = [
+        'Open Source',
+        'Mobile',
+        'Java',
+        'Web Development',
+        'Internet',
+        'Miscellaneous',
+        'Microsoft',
+        'Next Generation Databases',
+        'Programming',
+        'Networking',
+        'Theory',
+        'Microsoft .NET',
+        'Python',
+    ];
+
     constructor(
+        @Inject(LOCALE_ID) private locale: string,
         private route: ActivatedRoute,
         private bookService: BooksService,
         private router: Router,
@@ -36,7 +54,7 @@ export class EditBookComponent implements OnInit {
         if (bookID) {
             this.getBook(bookID);
         } else {
-            this.router.navigateByUrl('/');
+            this.goHome();
         }
     }
 
@@ -52,14 +70,25 @@ export class EditBookComponent implements OnInit {
                 this.setFormValue(book);
             }
         } else {
-            this.router.navigateByUrl('/');
+            this.goHome();
         }
     }
 
     setFormValue(book: Book) {
+        book.releaseDate = this.transformDate(book.releaseDate); // Correct format date applied
         this.form.patchValue(book);
-        console.log(this.form.value);
+
 
     }
+
+    transformDate(date: string) {
+        return formatDate(date, 'yyyy-MM-dd', this.locale);
+    }
+
+    submitForm() {
+        console.log(this.form.value);
+    }
+
+    goHome = () => this.router.navigateByUrl('/')
 
 }

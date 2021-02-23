@@ -7,4 +7,11 @@ input,
     &:focus {
         border-color: var(--color-primary) !important;
     }
+
+    &.input--long {
+        width: calc(90% - 150px);
+    }
+    &.input--medium {
+        width: calc(60% - 150px);
+    }
 }
