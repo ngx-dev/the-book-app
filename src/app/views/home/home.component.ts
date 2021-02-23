@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from '../../models/book';
 import { BooksService } from 'src/app/services/books.service';
 import { FormGroup } from '@angular/forms';
 
@@ -19,7 +18,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void { }
 
-    get books() { return this.bookService.books }
+    get filteredBooks() { return this.bookService.filteredBooks }
     get term() { return this.searchForm.value.term }
 
 }

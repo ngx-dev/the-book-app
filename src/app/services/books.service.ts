@@ -34,9 +34,8 @@ export class BooksService {
             );
     }
 
-    get filteredBooksCount() {
-        const count = this.filterPipe.transform(this.books, this.searchForm.value.term)?.length;
-        return count || 0;
+    get filteredBooks(): Book[] | undefined {
+        return this.filterPipe.transform(this.books, this.searchForm.value.term);
     }
 
 
