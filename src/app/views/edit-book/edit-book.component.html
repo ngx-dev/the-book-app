@@ -1,0 +1,40 @@
+<div class="subheader">
+    <h2 class="title">
+        Edit Book (<span class="title__book">{{ form?.value?.title }}</span
+        >)
+    </h2>
+</div>
+
+<div class="content padding-left">
+    <!-- <pre>{{ book | json }}</pre> -->
+    <form [formGroup]="form">
+        <div class="row">
+            <label for="title">Title</label>
+            <input
+                class="input input--long"
+                type="text"
+                name="title"
+                formControlName="title"
+            />
+        </div>
+        <div class="row">
+            <label for="author">Author</label>
+            <input
+                class="input input--medium"
+                type="text"
+                name="author"
+                formControlName="author"
+            />
+        </div>
+        <div class="row">
+            <label class="textarea" for="synopsis">Synopsis</label>
+            <textarea
+                class="input input--long"
+                type="text"
+                name="synopsis"
+                rows="4"
+                formControlName="synopsis"
+            ></textarea>
+        </div>
+    </form>
+</div>

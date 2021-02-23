@@ -1,14 +1,14 @@
 <button
-  [routerLink]="item?.url"
-  routerLinkActive="is-active is-selected"
-  [class.is-active]="isHovered"
-  (mouseover)="isHovered = true"
-  (mouseout)="isHovered = link.isActive"
-  #link="routerLinkActive"
+    [routerLink]="item?.url"
+    routerLinkActive="is-active"
+    [class.is-hover]="isHovered"
+    (mouseover)="isHovered = true"
+    (mouseout)="isHovered = false"
+    #link="routerLinkActive"
 >
-  <span
-    class="icon"
-    [ngStyle]="{ 'background-image': getIcon(link.isActive || isHovered) }"
-  ></span>
-  {{ item?.text }}
+    <span
+        class="icon"
+        [ngStyle]="{ 'background-image': getIcon(link.isActive || isHovered) }"
+    ></span>
+    {{ item?.text }}
 </button>

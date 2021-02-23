@@ -8,4 +8,5 @@ export type Book = {
     genres: string[];
     editable: boolean;
     deletable: boolean;
+    isComplete: boolean;
 }

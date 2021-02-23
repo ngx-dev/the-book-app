@@ -17,18 +17,25 @@
     .logo__text {
         display: none !important;
     }
+    .header-image {
+        display: none !important;
+    }
     .card {
-        width: 286px !important;
+        width: 250px !important;
+        .header {
+            height: 105px;
+        }
     }
 }
 
 /* TABLET */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
     :root {
         --sidenav-width: 16px;
     }
     .sidenav {
         display: none;
+        // TODO: Show Sidebar through burguer button on header.
     }
     .view {
         transition: margin 300ms ease;

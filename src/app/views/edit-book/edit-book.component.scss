@@ -1,0 +1,39 @@
+.subheader {
+    // border-color: var(--color-primary);
+    .title {
+        font-weight: 400;
+        margin: 0;
+        .title__book {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+    }
+}
+.content {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: var(--shadow-2);
+    .row {
+        padding: 20px 0;
+        label {
+            display: inline-block;
+            width: 150px;
+            &.textarea {
+                vertical-align: top;
+            }
+        }
+        .input {
+            &.input--long {
+                width: calc(90% - 150px);
+            }
+            &.input--medium {
+                width: calc(60% - 150px);
+            }
+        }
+        &:not(:first-child) {
+            border-top: 1px solid var(--color-grey-shade);
+        }
+    }
+}

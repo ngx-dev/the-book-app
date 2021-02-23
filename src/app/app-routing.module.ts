@@ -21,6 +21,15 @@ const routes: Routes = [
                     name: 'Home'
                 }
             },
+            {
+                path: 'edit-book/:id',
+                loadChildren: () =>
+                    import('./views/edit-book/edit-book.module').then(m => m.EditBookModule),
+                data: {
+                    title: 'TBA | Edit Book',
+                    name: 'Edit Book'
+                }
+            },
         ]
     },
     { path: '**', redirectTo: '/home', pathMatch: 'full' },

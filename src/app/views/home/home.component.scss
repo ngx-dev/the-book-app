@@ -1,12 +1,5 @@
-.spacer-left {
-    padding-left: var(--spacer);
-}
-
 .subheader {
     input {
-        border: 2px solid var(--color-grey-shade);
-        border-radius: 8px;
-        box-sizing: border-box;
         background-image: url('/assets/icons/searchIcon.png');
         background-repeat: no-repeat;
         background-size: 16px;

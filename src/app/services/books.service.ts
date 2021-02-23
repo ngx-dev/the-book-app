@@ -16,6 +16,8 @@ export class BooksService {
 
     books: Book[] | undefined;
 
+    BOOKS_DB = localStorage.getItem('BOOKS_DB');
+
     constructor(
         private formBuilder: FormBuilder,
         private booksApi: BooksApiService,
@@ -26,17 +28,39 @@ export class BooksService {
         });
     }
 
-    getBooks() {
-        this.booksApi.getBooks()
-            .pipe(first())
-            .subscribe(
-                data => this.books = data
-            );
-    }
-
     get filteredBooks(): Book[] | undefined {
         return this.filterPipe.transform(this.books, this.searchForm.value.term);
     }
+
+    getBooks() {
+        if (this.BOOKS_DB) {
+            this.books = JSON.parse(this.BOOKS_DB);
+        } else {
+            this.booksApi.getBooks()
+                .pipe(first())
+                .subscribe(
+                    data => {
+                        this.books = data;
+                        this.saveToDB();
+                    }
+                );
+
+        }
+    }
+
+    getBook(id: number) {
+        if (!this.books) {
+            this.getBooks();
+        }
+        return this.books?.find(book => book.id === id);
+    }
+
+    deleteBook(id: number) {
+        this.books = this.books?.filter(book => book.id !== id);
+        this.saveToDB();
+    }
+
+    saveToDB = () => localStorage.setItem('BOOKS_DB', JSON.stringify(this.books));
 
 
     // setSearchTerm(term: string): void {

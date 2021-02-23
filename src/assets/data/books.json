@@ -11,7 +11,8 @@
             "Mobile"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 2,
@@ -24,7 +25,8 @@
             "Java"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 3,
@@ -37,7 +39,8 @@
             "Web Development"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 4,
@@ -50,7 +53,8 @@
             "Internet"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 5,
@@ -63,7 +67,8 @@
             "Java"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 6,
@@ -76,7 +81,8 @@
             "Java"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 7,
@@ -89,7 +95,8 @@
             "Web Development"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 8,
@@ -102,7 +109,8 @@
             "Internet"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 9,
@@ -115,7 +123,8 @@
             "Miscellaneous"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 10,
@@ -128,7 +137,8 @@
             "Microsoft"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 11,
@@ -141,7 +151,8 @@
             "Next Generation Databases"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 12,
@@ -154,7 +165,8 @@
             "Programming"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 13,
@@ -167,7 +179,8 @@
             "Java"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 14,
@@ -180,7 +193,8 @@
             "Web Development"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 15,
@@ -193,7 +207,8 @@
             "Java"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 16,
@@ -207,7 +222,8 @@
             "Theory"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 17,
@@ -220,7 +236,8 @@
             "Web Development"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 18,
@@ -233,7 +250,8 @@
             "Programming"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 19,
@@ -246,7 +264,8 @@
             "Internet"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 20,
@@ -259,7 +278,8 @@
             "Microsoft .NET"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 21,
@@ -272,7 +292,8 @@
             "Python"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 22,
@@ -285,7 +306,8 @@
             "Web Development"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 23,
@@ -298,7 +320,8 @@
             "Microsoft .NET"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 24,
@@ -311,7 +334,8 @@
             "Microsoft .NET"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     },
     {
         "id": 25,
@@ -324,6 +348,7 @@
             "Internet"
         ],
         "editable": false,
-        "deletable": false
+        "deletable": false,
+        "isComplete": true
     }
 ]
