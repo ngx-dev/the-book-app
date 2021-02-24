@@ -9,12 +9,41 @@
     &:hover {
         background-color: var(--color-grey-shade);
     }
+
     &.button--primary {
         color: var(--color-white);
         background-color: var(--color-primary);
         border-color: transparent;
         &:hover {
             opacity: 0.8;
+        }
+    }
+
+    &.button--wizard {
+        border-radius: 20px;
+        border-color: var(--color-primary);
+        span {
+            color: var(--color-primary);
+        }
+        &:hover {
+            span {
+                color: var(--color-white);
+            }
+            background-color: var(--color-primary);
+        }
+    }
+
+    &.button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        &:hover {
+            opacity: 0.5;
+            &.button--wizard {
+                background-color: var(--color-white);
+                span {
+                    color: var(--color-primary);
+                }
+            }
         }
     }
 }

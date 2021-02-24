@@ -17,7 +17,7 @@ export class SidenavComponent implements OnInit {
         {
             text: 'New Book',
             icon: 'add',
-            url: '/new'
+            url: '/new-book'
         },
     ]
 

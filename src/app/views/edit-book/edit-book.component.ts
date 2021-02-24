@@ -1,6 +1,6 @@
 import { DatePipe, formatDate } from '@angular/common';
 import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/services/books.service';
@@ -14,32 +14,16 @@ export class EditBookComponent implements OnInit {
 
     form = this.formBuilder.group({
         id: [0],
-        title: [''],
-        releaseDate: [''],
+        title: ['', Validators.required],
+        releaseDate: ['', Validators.required],
         thumbnailUrl: [''],
-        synopsis: [''],
-        author: [''],
-        genres: [[]],
+        synopsis: ['', Validators.required],
+        author: ['', Validators.required],
+        genres: [[], Validators.required],
         editable: [false],
         deletable: [false],
         isComplete: [true],
     });
-
-    genres = [
-        'Open Source',
-        'Mobile',
-        'Java',
-        'Web Development',
-        'Internet',
-        'Miscellaneous',
-        'Microsoft',
-        'Next Generation Databases',
-        'Programming',
-        'Networking',
-        'Theory',
-        'Microsoft .NET',
-        'Python',
-    ];
 
     constructor(
         @Inject(LOCALE_ID) private locale: string,
@@ -49,23 +33,21 @@ export class EditBookComponent implements OnInit {
         private formBuilder: FormBuilder,
     ) {
         const paramID = this.route.snapshot.paramMap.get('id');
-        const bookID = Number(paramID);
+        const bookID = Number(paramID) || 0;
 
-        if (bookID) {
-            this.getBook(bookID);
-        } else {
-            this.goHome();
-        }
+        if (bookID) this.getBook(bookID);
     }
 
     ngOnInit(): void {
     }
 
+    get genres() { return this.bookService.genres }
+
     getBook(id: number) {
         const book = this.bookService.getBook(id);
         if (book) {
             if (!book.isComplete) {
-                this.router.navigate(['/new', book.id]);
+                this.router.navigate(['/new-book', book.id]);
             } else {
                 this.setFormValue(book);
             }
@@ -77,8 +59,6 @@ export class EditBookComponent implements OnInit {
     setFormValue(book: Book) {
         book.releaseDate = this.transformDate(book.releaseDate); // Correct format date applied
         this.form.patchValue(book);
-
-
     }
 
     transformDate(date: string) {
@@ -86,7 +66,9 @@ export class EditBookComponent implements OnInit {
     }
 
     submitForm() {
-        console.log(this.form.value);
+        if (this.form.valid) {
+            this.bookService.updateBook(this.form.value)
+        }
     }
 
     goHome = () => this.router.navigateByUrl('/')

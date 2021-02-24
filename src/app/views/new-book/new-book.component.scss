@@ -1,0 +1,29 @@
+.wizard {
+    width: calc(100% - 48px);
+    display: inline-block;
+    max-width: 900px;
+    .wizard__state {
+        text-align: center;
+    }
+    .wizard__forms {
+        padding: 20px;
+        background-color: var(--color-white);
+        border-radius: 10px;
+        box-shadow: var(--shadow-3);
+        .button--wizard {
+            position: relative;
+            right: calc(50% - 182px);
+            .button--last-step {
+                right: calc(50% - 175px);
+            }
+            span {
+                font-size: 18px;
+                &:not(.step--last):after {
+                    content: '»';
+                    display: inline-block;
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+}

@@ -18,7 +18,7 @@ export class SubheaderComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    get filteredBooksCount() { return this.bookService.filteredBooks?.length || 0; }
-    get booksCount() { return this.bookService.books?.length || 0; }
+    // get filteredBooksCount() { return this.bookService.filteredBooks?.length || 0; }
+    // get booksCount() { return this.bookService.books?.length || 0; }
 
 }

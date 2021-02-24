@@ -23,7 +23,7 @@ export class CardComponent implements OnInit {
     }
 
     deleteBook(bookID: number) {
-        if (window.confirm('Are sure you want to DELETE this book ?')) {
+        if (window.confirm('Are sure you want to << DELETE >> this book ?')) {
             this.bookService.deleteBook(bookID);
         }
     }

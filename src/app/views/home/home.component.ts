@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
     ngOnInit(): void { }
 
     get filteredBooks() { return this.bookService.filteredBooks }
-    // get term() { return this.searchForm.value.term }
 
     // TODO: reset page when in page > 1 and filter returns 1 page results.
 

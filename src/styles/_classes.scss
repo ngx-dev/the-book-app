@@ -20,6 +20,33 @@
             background-color: var(--color-primary);
         }
     }
+    .title {
+        font-weight: 400;
+        margin: 0;
+        .title--primary {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+    }
+}
+
+.row {
+    padding: 20px;
+    label {
+        display: inline-block;
+        width: 150px;
+        &.vertical-top {
+            vertical-align: top;
+        }
+    }
+    //border: 1px solid #d1d5db;
+    &:not(:first-child) {
+        border-top: 1px solid var(--color-grey-shade);
+    }
+    &.actions {
+        text-align: right;
+    }
 }
 
 .padding-right {

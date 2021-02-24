@@ -1,0 +1,101 @@
+<div class="subheader">
+    <h2 class="title">Add a Book</h2>
+</div>
+
+<div class="padding-left">
+    <div class="wizard">
+        <div class="wizard__state">
+            <app-wizard-state></app-wizard-state>
+        </div>
+        <div class="wizard__forms">
+            <ng-container [ngSwitch]="currentStep?.index">
+                <ng-container *ngSwitchCase="1" [ngTemplateOutlet]="step1"></ng-container>
+                <ng-container *ngSwitchCase="2" [ngTemplateOutlet]="step2"></ng-container>
+                <ng-container *ngSwitchCase="3" [ngTemplateOutlet]="step3"></ng-container>
+            </ng-container>
+            <!-- ACTIONS -->
+            <div class="row actions">
+                <button
+                    class="button button--wizard"
+                    [disabled]="isLastStep || !isStepComplete"
+                    [class.button--last-step]="isLastStep"
+                    (click)="nextStep()"
+                >
+                    <!-- -->
+                    <span [class.step--last]="isLastStep">
+                        {{ isLastStep ? "That's all !!" : 'Next step' }}
+                    </span>
+                </button>
+                <button class="button" (click)="submitForm()">Save & exit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #step1>
+    <form [formGroup]="step1Form">
+        <!-- TITLE -->
+        <div class="row">
+            <label for="title">Title</label>
+            <input class="input input--long" type="text" name="title" formControlName="title" />
+        </div>
+        <!-- AUTHOR -->
+        <div class="row">
+            <label for="author">Author</label>
+            <input
+                inputStyle
+                class="input input--medium"
+                type="text"
+                name="author"
+                formControlName="author"
+            />
+        </div>
+    </form>
+</ng-template>
+<ng-template #step2>
+    <form [formGroup]="step2Form">
+        <!-- RELEASE DATE -->
+        <div class="row">
+            <label for="releaseDate">Release Date</label>
+            <input
+                class="input input--medium"
+                type="date"
+                name="releaseDate"
+                formControlName="releaseDate"
+            />
+        </div>
+        <!-- SYNOPSIS -->
+        <div class="row">
+            <label class="vertical-top" for="synopsis">Synopsis</label>
+            <textarea
+                class="input input--long"
+                type="text"
+                name="synopsis"
+                formControlName="synopsis"
+            ></textarea>
+        </div>
+        <!-- GENRES -->
+        <div class="row">
+            <label class="vertical-top" for="genres">Genres</label>
+            <select class="input" multiple name="genres" formControlName="genres">
+                <ng-container *ngFor="let option of genres">
+                    <option [value]="option">{{ option }}</option>
+                </ng-container>
+            </select>
+        </div>
+    </form>
+</ng-template>
+<ng-template #step3>
+    <form [formGroup]="step3Form">
+        <!-- EDITABLE -->
+        <div class="row checkbox">
+            <label for="editable">Editable</label>
+            <input type="checkbox" name="editable" formControlName="editable" />
+        </div>
+        <!-- DELETABLE -->
+        <div class="row checkbox">
+            <label for="deletable">Deletable</label>
+            <input type="checkbox" name="deletable" formControlName="deletable" />
+        </div>
+    </form>
+</ng-template>

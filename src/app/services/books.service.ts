@@ -1,25 +1,42 @@
 import { Injectable } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { Book } from 'src/app/models/book';
 import { BooksApiService } from 'src/app/services/api/books-api.service';
 import { first } from 'rxjs/operators';
 import { Ng2SearchPipe } from 'ng2-search-filter';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
 })
 export class BooksService {
 
-    // searchTerm: BehaviorSubject<string> = new BehaviorSubject('');
+    books: Book[] = [];
+
     searchForm = new FormGroup({});
 
-    books: Book[] | undefined;
-
-    BOOKS_DB = localStorage.getItem('BOOKS_DB');
+    genres = [
+        'Open Source',
+        'Mobile',
+        'Java',
+        'Web Development',
+        'Internet',
+        'Miscellaneous',
+        'Microsoft',
+        'Next Generation Databases',
+        'Programming',
+        'Software Engineering',
+        'Networking',
+        'Theory',
+        'Microsoft .NET',
+        'Python',
+        'Business',
+        'Other'
+    ];
 
     constructor(
         private formBuilder: FormBuilder,
+        private router: Router,
         private booksApi: BooksApiService,
         private filterPipe: Ng2SearchPipe
     ) {
@@ -28,13 +45,17 @@ export class BooksService {
         });
     }
 
-    get filteredBooks(): Book[] | undefined {
+    get filteredBooks(): Book[] {
         return this.filterPipe.transform(this.books, this.searchForm.value.term);
     }
 
-    getBooks() {
-        if (this.BOOKS_DB) {
-            this.books = JSON.parse(this.BOOKS_DB);
+    getBooks(): void {
+        if (this.books.length) {
+            return;
+        }
+        const BOOKS_DB = localStorage.getItem('BOOKS_DB');
+        if (BOOKS_DB) {
+            this.books = JSON.parse(BOOKS_DB || '');
         } else {
             this.booksApi.getBooks()
                 .pipe(first())
@@ -47,27 +68,46 @@ export class BooksService {
         }
     }
 
-    getBook(id: number) {
-        if (!this.books) {
+    getBook(id: number): Book | undefined {
+        if (!this.books?.length) {
             this.getBooks();
         }
         return this.books?.find(book => book.id === id);
     }
 
-    deleteBook(id: number) {
-        this.books = this.books?.filter(book => book.id !== id);
+    deleteBook(id: number): void {
+        const foundIndex = this.books.findIndex(b => b.id === id);
+        this.books.splice(foundIndex, 1);
         this.saveToDB();
+        this.showAlert('DELETED');
+    }
+
+    updateBook(book: Book): void {
+        const foundIndex = this.books.findIndex(b => b.id === book.id);
+        this.books[foundIndex] = book;
+        this.saveToDB();
+        this.router.navigateByUrl('/');
+        this.showAlert('UPDATED');
+    }
+
+    addBook(book: Book): void {
+        const bookExist = this.books?.find(b => b.id === book.id);
+        if (bookExist) {
+            this.updateBook(book);
+        } else {
+            book.id = this.books?.length ? Number(this.books[this.books?.length - 1]?.id) + 1 : 1;
+            this.books?.push(book);
+            this.saveToDB();
+            this.router.navigateByUrl('/');
+            this.showAlert('CREATED');
+        }
     }
 
     saveToDB = () => localStorage.setItem('BOOKS_DB', JSON.stringify(this.books));
 
-
-    // setSearchTerm(term: string): void {
-    //     this.searchTerm.next(term);
-    // }
-
-    // getSearchTerm(): Observable<string> {
-    //     return this.searchTerm.asObservable();
-    // }
-
+    showAlert(state: string): void {
+        setTimeout(() => {
+            window.alert(`Book < ${state} >`)
+        }, 200);
+    }
 }

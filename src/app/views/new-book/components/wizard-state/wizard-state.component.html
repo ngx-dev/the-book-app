@@ -1,0 +1,18 @@
+<div class="wizard-steps">
+    <ng-container *ngFor="let step of steps | async; index as i; last as last">
+        <div
+            (click)="setStep(step)"
+            [ngClass]="{
+                'step--complete': step.isComplete,
+                'step--incomplete': !step.isComplete,
+                'step--current': (currentStep | async)?.index === step.index
+            }"
+            class="step-index"
+        >
+            <span class="step-index__text">
+                {{ step.index }}
+            </span>
+        </div>
+        <div *ngIf="!last" class="step-divider"></div>
+    </ng-container>
+</div>

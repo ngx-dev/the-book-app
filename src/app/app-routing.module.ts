@@ -30,6 +30,24 @@ const routes: Routes = [
                     name: 'Edit Book'
                 }
             },
+            {
+                path: 'new-book',
+                loadChildren: () =>
+                    import('./views/new-book/new-book.module').then(m => m.NewBookModule),
+                data: {
+                    title: 'TBA | New Book',
+                    name: 'New Book'
+                }
+            },
+            {
+                path: 'new-book/:id',
+                loadChildren: () =>
+                    import('./views/new-book/new-book.module').then(m => m.NewBookModule),
+                data: {
+                    title: 'TBA | New Book',
+                    name: 'New Book'
+                }
+            },
         ]
     },
     { path: '**', redirectTo: '/home', pathMatch: 'full' },

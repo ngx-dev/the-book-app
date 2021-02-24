@@ -1,6 +1,6 @@
 <div class="subheader">
     <h2 class="title">
-        Edit Book (<span class="title__book">{{ form?.value?.title }}</span
+        Edit Book (<span class="title--primary">{{ form?.value?.title }}</span
         >)
     </h2>
 </div>
@@ -11,9 +11,10 @@
         <form [formGroup]="form">
             <!-- TITLE -->
             <div class="row">
-                <label for="title">Title</label>
+                <label class="required" for="title">Title</label>
                 <input
-                    class="input input--long"
+                    inputStyle
+                    class="input--long required"
                     type="text"
                     name="title"
                     formControlName="title"
@@ -23,7 +24,8 @@
             <div class="row">
                 <label for="author">Author</label>
                 <input
-                    class="input input--medium"
+                    inputStyle
+                    class="input--medium"
                     type="text"
                     name="author"
                     formControlName="author"
@@ -33,7 +35,8 @@
             <div class="row">
                 <label for="releaseDate">Release Date</label>
                 <input
-                    class="input input--medium"
+                    inputStyle
+                    class="input--medium"
                     type="date"
                     name="releaseDate"
                     formControlName="releaseDate"
@@ -43,28 +46,19 @@
             <div class="row">
                 <label class="vertical-top" for="synopsis">Synopsis</label>
                 <textarea
+                    inputStyle
                     autosize
                     [minRows]="4"
-                    class="input input--long"
+                    class="input--long"
                     type="text"
                     name="synopsis"
                     formControlName="synopsis"
                 ></textarea>
             </div>
             <!-- GENRES -->
-            <!-- <div class="row">
-                <label for="genres">Genres</label>
-                <input
-                    class="input input--medium"
-                    type="text"
-                    name="genres"
-                    formControlName="genres"
-                />
-            </div> -->
-            <!-- GENRES -->
             <div class="row">
                 <label class="vertical-top" for="genres">Genres</label>
-                <select multiple name="genres" formControlName="genres">
+                <select inputStyle multiple name="genres" formControlName="genres">
                     <ng-container *ngFor="let option of genres">
                         <option [value]="option">{{ option }}</option>
                     </ng-container>
@@ -73,28 +67,18 @@
             <!-- EDITABLE -->
             <div class="row checkbox">
                 <label for="editable">Editable</label>
-                <input
-                    type="checkbox"
-                    name="editable"
-                    formControlName="editable"
-                />
+                <input type="checkbox" name="editable" formControlName="editable" />
             </div>
             <!-- DELETABLE -->
             <div class="row checkbox">
                 <label for="deletable">Deletable</label>
-                <input
-                    type="checkbox"
-                    name="deletable"
-                    formControlName="deletable"
-                />
+                <input type="checkbox" name="deletable" formControlName="deletable" />
             </div>
         </form>
         <!-- ACTIONS -->
         <div class="row actions">
-            <button class="button margin-right" (click)="goHome()">
-                Cancel
-            </button>
-            <button class="button button--primary" (click)="submitForm()">
+            <button class="button margin-right" (click)="goHome()">Cancel</button>
+            <button class="button button--primary" [disabled]="form.invalid" (click)="submitForm()">
                 Save
             </button>
         </div>
