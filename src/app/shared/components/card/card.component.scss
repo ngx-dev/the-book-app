@@ -45,7 +45,6 @@
         width: 100%;
         .action-right,
         .action-left {
-            //   padding: 20px 24px;
             display: inline-block;
             width: 50%;
             text-align: center;
@@ -55,10 +54,15 @@
                 color: var(--color-text-button);
                 padding: 10px 16px;
                 cursor: pointer;
+                &.disabled {
+                    background-color: var(--color-grey);
+                    color: var(--color-grey-shade);
+                    pointer-events: none;
+                }
             }
             &:hover {
                 background-color: var(--color-grey-shade);
-                .action {
+                .action:not(.disabled) {
                     color: var(--color-text-button-active);
                 }
             }
@@ -66,7 +70,11 @@
         .action-right {
             .action {
                 border-left: 2px solid var(--color-grey-shade);
+                border-radius: 0 0 10px 0;
             }
+        }
+        .action-left .action {
+            border-radius: 0 0 0 10px;
         }
     }
 }

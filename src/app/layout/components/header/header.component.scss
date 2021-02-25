@@ -35,4 +35,20 @@
             }
         }
     }
+    .user {
+        float: right;
+        line-height: var(--header-height);
+        margin-right: 20px;
+        span.user__name {
+            font-size: 16px;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+        span.user__toggle {
+            font-size: 12px;
+            position: absolute;
+            right: 20px;
+            top: 16px;
+        }
+    }
 }

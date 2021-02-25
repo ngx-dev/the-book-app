@@ -1,5 +1,5 @@
 <header class="header">
-    <a href="/" class="logo">
+    <a href="javascript: void(0)" routerLink="/" class="logo">
         <div class="logo__icon"><span class="icon"></span></div>
         <div class="logo__text">
             <span class="line">The</span>
@@ -7,4 +7,10 @@
             <span class="line">App</span>
         </div>
     </a>
+    <div class="user">
+        <span class="user__name">{{ isAdmin ? 'Admin User' : 'Standard User' }}</span>
+        <span class="user__toggle" (click)="toggleUser()"
+            ><a href="javascript: void(0)">Change user</a></span
+        >
+    </div>
 </header>

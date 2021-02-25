@@ -2,7 +2,7 @@
     <div class="header">
         <div
             class="header-image"
-            [ngStyle]="{ 'background-image': getImage(item?.thumbnailUrl) }"
+            [ngStyle]="{ 'background-image': getImage(item.thumbnailUrl) }"
         ></div>
         <div class="header-info">
             <span class="title">{{ item.title }}</span>
@@ -12,10 +12,22 @@
     </div>
     <div class="actions">
         <div class="action-left">
-            <div class="action" (click)="goToEdit(item.id)">Edit</div>
+            <div
+                class="action"
+                [class.disabled]="!item.editable && !isAdmin"
+                (click)="goToEdit(item.id)"
+            >
+                Edit
+            </div>
         </div>
         <div class="action-right">
-            <div class="action" (click)="deleteBook(item.id)">Delete</div>
+            <div
+                class="action"
+                [class.disabled]="!item.deletable && !isAdmin"
+                (click)="deleteBook(item.id)"
+            >
+                Delete
+            </div>
         </div>
     </div>
 </div>
