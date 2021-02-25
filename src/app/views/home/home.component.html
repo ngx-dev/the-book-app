@@ -6,21 +6,18 @@
         placeholder="Search..."
         formControlName="term"
     />
-    <pagination-controls
-        class="pagination"
-        (pageChange)="page = $event"
-    ></pagination-controls>
+    <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
 </div>
 
 <div class="padding-left">
     <ng-container *ngIf="filteredBooks">
         <ng-container
             *ngFor="
-                let book of filteredBooks
-                    | paginate: { itemsPerPage: 20, currentPage: page }
+                let book of filteredBooks | paginate: { itemsPerPage: 20, currentPage: page };
+                index as i
             "
         >
-            <app-card [item]="book"></app-card>
+            <app-card [item]="book" [index]="i"></app-card>
         </ng-container>
     </ng-container>
 </div>

@@ -1,4 +1,4 @@
-<div class="card" *ngIf="item">
+<div class="card" [style.--animation-delay]="index * 50 + 'ms'" *ngIf="item">
     <div class="header">
         <div
             class="header-image"

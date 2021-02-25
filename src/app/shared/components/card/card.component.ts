@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CardComponent implements OnInit {
 
     @Input() item: Book | undefined;
+    @Input() index: number = 0;
 
     constructor(private bookService: BooksService, private router: Router) { }
 
