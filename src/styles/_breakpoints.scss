@@ -14,10 +14,9 @@
             float: none !important;
         }
     }
-    .logo__text {
-        display: none !important;
-    }
-    .header-image {
+    .logo__text,
+    .header-image,
+    .user__name {
         display: none !important;
     }
     .card {
@@ -43,6 +42,19 @@
     .subheader {
         .ngx-pagination {
             padding: 0;
+        }
+    }
+}
+
+/* LAPTOP */
+@media only screen and (max-width: 1000px) {
+    .row:not(.checkbox) {
+        label {
+            display: block;
+            margin-bottom: 4px;
+        }
+        .input {
+            width: 100%;
         }
     }
 }

@@ -35,7 +35,9 @@
     padding: 20px;
     label {
         display: inline-block;
-        width: 150px;
+        width: var(--label-width);
+        font-size: 14px;
+        font-weight: 600;
         &.vertical-top {
             vertical-align: top;
         }

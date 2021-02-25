@@ -8,10 +8,10 @@
     }
 
     &.input--long {
-        width: calc(90% - 150px);
+        width: calc(90% - var(--label-width));
     }
     &.input--medium {
-        width: calc(60% - 150px);
+        width: calc(60% - var(--label-width));
     }
 }
 

@@ -8,7 +8,7 @@
 <div class="padding-left">
     <!-- <pre>{{ book | json }}</pre> -->
     <div class="wrapper">
-        <form [formGroup]="form">
+        <form autocomplete="off" [formGroup]="form">
             <!-- TITLE -->
             <div class="row">
                 <label class="required" for="title">Title</label>
@@ -22,7 +22,7 @@
             </div>
             <!-- AUTHOR -->
             <div class="row">
-                <label for="author">Author</label>
+                <label class="required" for="author">Author</label>
                 <input
                     inputStyle
                     class="input--medium"
@@ -33,7 +33,7 @@
             </div>
             <!-- RELEASE DATE -->
             <div class="row">
-                <label for="releaseDate">Release Date</label>
+                <label class="required" for="releaseDate">Release Date</label>
                 <input
                     inputStyle
                     class="input--medium"
@@ -44,7 +44,7 @@
             </div>
             <!-- SYNOPSIS -->
             <div class="row">
-                <label class="vertical-top" for="synopsis">Synopsis</label>
+                <label class="required vertical-top" for="synopsis">Synopsis</label>
                 <textarea
                     inputStyle
                     autosize
@@ -57,7 +57,7 @@
             </div>
             <!-- GENRES -->
             <div class="row">
-                <label class="vertical-top" for="genres">Genres</label>
+                <label class="required vertical-top" for="genres">Genres</label>
                 <select inputStyle multiple name="genres" formControlName="genres">
                     <ng-container *ngFor="let option of genres">
                         <option [value]="option">{{ option }}</option>
