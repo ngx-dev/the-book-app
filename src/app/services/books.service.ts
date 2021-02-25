@@ -55,7 +55,7 @@ export class BooksService {
         }
         const BOOKS_DB = localStorage.getItem('BOOKS_DB');
         if (BOOKS_DB) {
-            this.books = JSON.parse(BOOKS_DB || '');
+            this.books = JSON.parse(BOOKS_DB);
         } else {
             this.booksApi.getBooks()
                 .pipe(first())
@@ -95,7 +95,8 @@ export class BooksService {
         if (bookExist) {
             this.updateBook(book);
         } else {
-            book.id = this.books?.length ? Number(this.books[this.books?.length - 1]?.id) + 1 : 1;
+            let lastId = Number(this.books[this.books?.length - 1]?.id);
+            book.id = this.books?.length ? ++lastId : 1;
             this.books?.push(book);
             this.saveToDB();
             this.router.navigateByUrl('/');

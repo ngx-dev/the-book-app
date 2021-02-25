@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { NavItemComponent } from './components/sidenav/nav-item/nav-item.component';
-import { SubheaderComponent } from './components/subheader/subheader.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipe } from 'ng2-search-filter';
 
@@ -14,8 +13,7 @@ import { Ng2SearchPipe } from 'ng2-search-filter';
         MainLayoutComponent,
         HeaderComponent,
         SidenavComponent,
-        NavItemComponent,
-        SubheaderComponent
+        NavItemComponent
     ],
     imports: [
         CommonModule,
@@ -24,7 +22,6 @@ import { Ng2SearchPipe } from 'ng2-search-filter';
     ],
     providers: [
         Ng2SearchPipe
-    ],
-    exports: [SubheaderComponent]
+    ]
 })
 export class LayoutModule { }

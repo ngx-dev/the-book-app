@@ -15,23 +15,15 @@ export class AppComponent implements OnInit {
     ) { }
     ngOnInit() {
 
-        // this.router.events.subscribe((event) => {
-        //     if (event instanceof NavigationEnd) {
-        //         window.scrollTo(0, 0)
-        //     }
-        //     return;
-        // });
-
-        this.router.events.pipe(
-            filter(event => event instanceof NavigationEnd),
-        ).subscribe(() => {
-            const route = this.getChild(this.activatedRoute);
-            route.data.subscribe((data: { title: string; }) => {
-                this.titleService.setTitle(data.title);
-                // Subheader with page name
-                window.scrollTo(0, 0);
+        this.router.events
+            .pipe(filter(event => event instanceof NavigationEnd))
+            .subscribe(() => {
+                const route = this.getChild(this.activatedRoute);
+                route.data.subscribe((data: { title: string; }) => {
+                    this.titleService.setTitle(data.title);
+                    window.scrollTo(0, 0);
+                });
             });
-        });
     }
 
     getChild(activatedRoute: ActivatedRoute): any {

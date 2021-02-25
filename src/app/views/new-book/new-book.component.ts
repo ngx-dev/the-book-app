@@ -74,10 +74,10 @@ export class NewBookComponent implements OnInit, OnDestroy {
     }
 
     setFormsValue() {
-        const book = this.bookService.getBook(this.bookID);
-        this.step1Form.patchValue(<Book>book);
-        this.step2Form.patchValue(<Book>book);
-        this.step3Form.patchValue(<Book>book);
+        const book = <Book>this.bookService.getBook(this.bookID);
+        this.step1Form.patchValue(book);
+        this.step2Form.patchValue(book);
+        this.step3Form.patchValue(book);
     }
 
     nextStep() {
@@ -97,8 +97,6 @@ export class NewBookComponent implements OnInit, OnDestroy {
         this.bookService.addBook(book);
     }
 
-    ngOnDestroy() {
-        this.subscription.unsubscribe();
-    }
+    ngOnDestroy() { this.subscription.unsubscribe(); }
 
 }

@@ -21,6 +21,6 @@ export class HomeComponent implements OnInit {
 
     get filteredBooks() { return this.bookService.filteredBooks }
 
-    // TODO: reset page when in page > 1 and filter returns 1 page results.
+    // TODO: reset page to 0 when in page > 1 and filter returns 1 page results & scroll top.
 
 }

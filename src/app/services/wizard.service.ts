@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Step } from '../models/step';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+/* Wizard inspired by: https://itnext.io/simple-wizard-stepper-for-your-angular-web-apps-31b9edaebd9a */
+
 const STEPS: Step[] = [
     { index: 1, isComplete: false },
     { index: 2, isComplete: false },

@@ -46,10 +46,10 @@ export class EditBookComponent implements OnInit {
     getBook(id: number) {
         const book = this.bookService.getBook(id);
         if (book) {
-            if (!book.isComplete) {
-                this.router.navigate(['/new-book', book.id]);
-            } else {
+            if (book.isComplete) {
                 this.setFormValue(book);
+            } else {
+                this.router.navigate(['/new-book', book.id]);
             }
         } else {
             this.goHome();

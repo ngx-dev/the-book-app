@@ -6,23 +6,7 @@ body {
     margin: 0;
     height: 100vh;
     * {
-        font-family: 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont,
-            'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji',
-            'Segoe UI Emoji', 'Segoe UI Symbol';
-    }
-    //   color: #333;
-}
-
-input:focus,
-textarea:focus,
-select:focus,
-button,
-a {
-    outline: none;
-}
-
-input {
-    &:focus {
-        border-color: var(--color-primary);
+        font-family: 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+            Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     }
 }

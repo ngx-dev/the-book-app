@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
-import { BooksService } from 'src/app/services/books.service';
 import { Router } from '@angular/router';
+import { BooksService } from 'src/app/services/books.service';
 import { AuthService } from 'src/app/services/auth.service';
+
+const defaultImage = '/assets/images/book-image.jpg';
 
 @Component({
     selector: 'app-card',
@@ -15,8 +17,8 @@ export class CardComponent implements OnInit {
     @Input() index: number = 0;
 
     constructor(
-        private bookService: BooksService,
         private router: Router,
+        private bookService: BooksService,
         private auth: AuthService
     ) { }
 
@@ -24,7 +26,6 @@ export class CardComponent implements OnInit {
     }
 
     getImage(url: string | undefined): string {
-        const defaultImage = '/assets/images/book-image.jpg';
         return `url(${url ? url : defaultImage})`;
     }
 

@@ -5,7 +5,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { CardModule } from 'src/app/shared/components/card/card.module';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { LayoutModule } from 'src/app/layout/layout.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -16,8 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         HomeRoutingModule,
         ReactiveFormsModule,
         CardModule,
-        NgxPaginationModule,
-        LayoutModule
+        NgxPaginationModule
     ]
 })
 export class HomeModule { }

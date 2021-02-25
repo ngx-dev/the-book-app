@@ -16,37 +16,25 @@ const routes: Routes = [
                 path: 'home',
                 loadChildren: () =>
                     import('./views/home/home.module').then(m => m.HomeModule),
-                data: {
-                    title: 'TBA | Home',
-                    name: 'Home'
-                }
+                data: { title: 'TBA | Home' }
             },
             {
                 path: 'edit-book/:id',
                 loadChildren: () =>
                     import('./views/edit-book/edit-book.module').then(m => m.EditBookModule),
-                data: {
-                    title: 'TBA | Edit Book',
-                    name: 'Edit Book'
-                }
+                data: { title: 'TBA | Edit Book' }
             },
             {
                 path: 'new-book',
                 loadChildren: () =>
                     import('./views/new-book/new-book.module').then(m => m.NewBookModule),
-                data: {
-                    title: 'TBA | New Book',
-                    name: 'New Book'
-                }
+                data: { title: 'TBA | New Book' }
             },
             {
                 path: 'new-book/:id',
                 loadChildren: () =>
                     import('./views/new-book/new-book.module').then(m => m.NewBookModule),
-                data: {
-                    title: 'TBA | New Book',
-                    name: 'New Book'
-                }
+                data: { title: 'TBA | Edit Book' }
             },
         ]
     },

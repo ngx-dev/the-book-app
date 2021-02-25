@@ -9,12 +9,9 @@ import { map } from 'rxjs/operators';
 })
 export class BooksApiService {
 
-    step = 10;
-
     constructor(private http: HttpClient) { }
 
     getBooks(): Observable<Book[]> {
-        // return this.http.get<Book[]>('assets/data/books.json').pipe(map(book => book.splice(0, this.step)));
         return this.http.get<Book[]>('assets/data/books.json');
     }
 }

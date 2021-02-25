@@ -10,15 +10,13 @@
     <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
 </div>
 
-<div class="padding-left">
-    <ng-container *ngIf="filteredBooks">
-        <ng-container
-            *ngFor="
-                let book of filteredBooks | paginate: { itemsPerPage: 20, currentPage: page };
-                index as i
-            "
-        >
-            <app-card [item]="book" [index]="i"></app-card>
-        </ng-container>
+<div class="padding-left" *ngIf="filteredBooks">
+    <ng-container
+        *ngFor="
+            let book of filteredBooks | paginate: { itemsPerPage: 20, currentPage: page };
+            index as i
+        "
+    >
+        <app-card [item]="book" [index]="i"></app-card>
     </ng-container>
 </div>

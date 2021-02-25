@@ -19,3 +19,18 @@ label.required:after {
     content: ' *';
     color: var(--color-primary);
 }
+
+// Browser outline
+input:focus,
+textarea:focus,
+select:focus,
+button,
+a {
+    outline: none;
+}
+
+input {
+    &:focus {
+        border-color: var(--color-primary);
+    }
+}
